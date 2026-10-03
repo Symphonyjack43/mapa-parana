@@ -15,6 +15,14 @@
 <body>
     <!-- Este es tu nodo raíz visible. Aquí dentro pondremos el Control node para nuestro mapa -->
 
+    <!-- Tu "CanvasLayer" para la UI de filtros -->
+    <div id="ui-filtros">
+        <h3 class="titulo-filtro">Categorías</h3>
+        <!-- Etiquetas que funcionan como un CheckBox en Godot -->
+        <label><input type="checkbox" id="check-feria" value="feria" checked> Ferias</label><br>
+        <label><input type="checkbox" id="check-charla" value="charla" checked> Charlas</label>
+    </div>
+
     <!-- 2. Tu nodo contenedor. El atributo "id" es como renombrar el nodo en el árbol para buscarlo luego por código -->
     <div id="mapa-contenedor"></div>
 

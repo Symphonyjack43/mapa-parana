@@ -27,6 +27,12 @@ const mapaSprite = L.imageOverlay('mapa.png', limites);
 // Agregamos el sprite a nuestro mapa.
 mapaSprite.addTo(mapa);
 
+// 4.5 GRUPOS DE CAPAS (Tus Node2D contenedores)
+const gruposFiltros = {
+    "feria": L.layerGroup().addTo(mapa),
+    "charla": L.layerGroup().addTo(mapa)
+};
+
 // Le decimos a la cámara que haga un "zoom extents", ajustando su nivel de zoom 
 // automáticamente para que toda la imagen (los limites) sea visible al cargar la página.
 mapa.fitBounds(limites);
@@ -77,8 +83,13 @@ async function instanciarEventosDiarios() {
                 // Instanciamos el marcador usando las coordenadas del Diccionario
                 let marcador = L.marker(evento.coordenadas);
                 
-                // add_child()
-                marcador.addTo(mapa);
+                // NUEVO: add_child() al grupo correspondiente, no al mapa general
+                let grupoCorrespondiente = gruposFiltros[evento.categoria];
+                if (grupoCorrespondiente) {
+                    marcador.addTo(grupoCorrespondiente);
+                }
+                
+                // Armamos el texto del Pop-up...
                 
                 // Armamos el texto del Pop-up concatenando datos (Uso de HTML básico para dar formato)
                 let textoPopup = `<b>${evento.nombre}</b><br>${evento.descripcion}`;
@@ -91,5 +102,30 @@ async function instanciarEventosDiarios() {
     }
 }
 
+// 7. CONECTANDO SEÑALES DE LA INTERFAZ
+// Buscamos los nodos CheckBox por su ID (como hacer un get_node("$CanvasLayer/CheckFeria"))
+const checkFeria = document.getElementById('check-feria');
+const checkCharla = document.getElementById('check-charla');
+
+// Conectamos la señal 'change' para las ferias
+checkFeria.addEventListener('change', function(evento) {
+    // evento.target.checked devuelve true o false
+    if (evento.target.checked) {
+        mapa.addLayer(gruposFiltros["feria"]); // show()
+    } else {
+        mapa.removeLayer(gruposFiltros["feria"]); // hide()
+    }
+});
+
+// Conectamos la señal 'change' para las charlas
+checkCharla.addEventListener('change', function(evento) {
+    if (evento.target.checked) {
+        mapa.addLayer(gruposFiltros["charla"]);
+    } else {
+        mapa.removeLayer(gruposFiltros["charla"]);
+    }
+});
+
 // Llamamos a la función para que se ejecute al iniciar el script (como si fuera el _ready())
 instanciarEventosDiarios();
+
