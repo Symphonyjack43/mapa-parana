@@ -1,0 +1,46 @@
+/* Seleccionamos el nodo raíz de la página para resetear sus márgenes por defecto */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a; /* Un color de fondo oscuro por si el mapa no cubre todo */
+}
+
+/* Usamos el "#" para seleccionar un nodo por su ID específico */
+#mapa-contenedor {
+    width: 100vw;  /* vw = Viewport Width (100% del ancho de la ventana) */
+    height: 100vh; /* vh = Viewport Height (100% de la altura de la ventana) */
+    
+    /* ¡Magia para tu arte en Aseprite! */
+    /* Esto es el equivalente exacto a ir a Godot y poner el Texture Filter en "Nearest" */
+    image-rendering: pixelated; 
+}
+
+/* ---------------------------------------------------
+   SOBREESCRIBIENDO EL THEME DE LOS POP-UPS
+--------------------------------------------------- */
+
+/* 1. El Panel principal del pop-up (Equivalente a un StyleBoxFlat) */
+.leaflet-popup-content-wrapper {
+    background-color: #fdfbf7; /* Fondo color crema */
+    color: #1a1a1a; /* Texto oscuro */
+    border: 3px solid #8ab6d6; /* Borde celeste claro */
+    border-radius: 0px; /* Bordes totalmente rectos, eliminamos lo redondeado */
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 1); /* Sombra negra sólida de 4px, sin difuminar */
+    
+    /* Usamos una fuente monospace genérica para darle un toque retro/código */
+    font-family: 'Courier New', Courier, monospace; 
+}
+
+/* 2. La flechita (punta) que conecta el pop-up con el pin */
+.leaflet-popup-tip {
+    background-color: #fdfbf7;
+    border-top: 3px solid #8ab6d6;
+    border-left: 3px solid #8ab6d6;
+}
+
+/* 3. Estilizando el texto interno (RichTextLabel) */
+.leaflet-popup-content b {
+    color: #3b7b9f; /* Un tono de azul un poco más oscuro para resaltar los títulos */
+    font-size: 1.1rem;
+    text-transform: uppercase; /* Fuerza el título a estar en MAYÚSCULAS */
+}

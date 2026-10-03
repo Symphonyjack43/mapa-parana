@@ -1,0 +1,14 @@
+[
+    {
+        "nombre": "Evento en la Catedral",
+        "coordenadas": [344, 182],
+        "fecha": "2026-10-03",
+        "descripcion": "Feria de artesanías y exposición de libros en la plaza."
+    },
+    {
+        "nombre": "Charla en Plaza de bomberos",
+        "coordenadas": [366, 192],
+        "fecha": "2026-10-04",
+        "descripcion": "Demostración abierta de equipos de rescate (Mañana)."
+    }
+]
