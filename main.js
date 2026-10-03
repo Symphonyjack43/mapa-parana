@@ -12,8 +12,8 @@ const mapa = L.map('mapa-contenedor', {
 // A diferencia de un Sprite2D en Godot que detecta el tamaño de la imagen automáticamente,
 // aquí debemos definir la "caja de colisión" o los límites (bounds) de nuestro mundo.
 // ATENCIÓN: Reemplaza 1080 y 1920 con el alto y ancho REAL de tu mapa.png en píxeles.
-const alto = 688;
-const ancho = 364;
+const alto = 1186;
+const ancho = 880;
 
 // En Leaflet, las coordenadas se escriben [Y, X] en lugar de (X, Y).
 // Esto define un rectángulo desde la esquina inferior izquierda [0,0] hasta la superior derecha [alto, ancho].
