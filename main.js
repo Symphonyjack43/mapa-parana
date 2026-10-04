@@ -14,14 +14,19 @@ const limites = [[0, 0], [alto, ancho]];
 // L.CRS.Simple es crucial: le dice al mapa que use un sistema de coordenadas cartesiano plano (X, Y) 
 // en lugar de un globo terráqueo.
 
+// NUEVO: Agregamos un margen de 200 píxeles para que entren los pop-ups grandes
+const margen = 200; 
+// Creamos una nueva caja de colisión más grande sumando y restando el margen
+const limitesCamara = [[-margen, -margen], [alto + margen, ancho + margen]];
+
 
 const mapa = L.map('mapa-contenedor', {
     crs: L.CRS.Simple,
     minZoom: -1, // Qué tanto podemos alejar la cámara (zoom out)
-    maxZoom: 2,   // Qué tanto podemos acercar la cámara (zoom in)
+    maxZoom: 1,   // Qué tanto podemos acercar la cámara (zoom in)
 
     // NUEVO: Límites de la Camera2D
-    maxBounds: limites, 
+    maxBounds: limitesCamara, 
     // NUEVO: Colisión sólida al 100% (sin efecto de banda elástica)
     maxBoundsViscosity: 1.0
 
