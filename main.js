@@ -41,6 +41,9 @@ mapaSprite.addTo(mapa);
 // 4.5 GRUPOS DE CAPAS (Tus Node2D contenedores)
 const gruposFiltros = {
     "feria": L.layerGroup().addTo(mapa),
+    "taller": L.layerGroup().addTo(mapa),
+    "audiovisual": L.layerGroup().addTo(mapa),
+    "concierto": L.layerGroup().addTo(mapa),
     "charla": L.layerGroup().addTo(mapa)
 };
 
