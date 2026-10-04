@@ -44,3 +44,75 @@ body {
     font-size: 1.1rem;
     text-transform: uppercase; /* Fuerza el título a estar en MAYÚSCULAS */
 }
+
+/* ---------------------------------------------------
+   INTERFAZ DE FILTROS (CanvasLayer + Control Node)
+--------------------------------------------------- */
+
+#ui-filtros {
+    /* position: absolute desconecta el nodo del fondo, permitiendo que flote */
+    position: absolute; 
+    
+    /* Anchors: Lo fijamos a 20 píxeles del borde superior y derecho de la pantalla */
+    top: 20px;
+    right: 20px;
+    
+    /* Z-Index: Prioridad de dibujado. Un número alto asegura que se renderice sobre el mapa */
+    z-index: 1000; 
+
+    /* Tu StyleBoxFlat retro (manteniendo la paleta crema y celeste) */
+    background-color: #fdfbf7;
+    border: 4px solid #8ab6d6;
+    box-shadow: 4px 4px 0px #1a1a1a; /* Sombra dura en bloque sin difuminar */
+    padding: 15px;
+    
+    font-family: 'Courier New', Courier, monospace;
+    color: #1a1a1a;
+}
+
+/* Modificamos el título dentro del panel */
+.titulo-filtro {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: #3b7b9f;
+    border-bottom: 2px dashed #8ab6d6; /* Línea separadora estilo retro */
+    padding-bottom: 5px;
+}
+
+/* Espaciado para los CheckBox */
+#ui-filtros label {
+    display: block; /* Fuerza a que cada botón baje a la siguiente línea (VBoxContainer) */
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+/* ---------------------------------------------------
+   ANIMACIONES (AnimationPlayer - Corregido)
+--------------------------------------------------- */
+
+/* Definimos la pista de animación usando el margen (Offset) en lugar del Transform */
+@keyframes flotar {
+    0%   { margin-top: 0px; }
+    50%  { margin-top: -10px; } /* Sube 10 píxeles usando el margen exterior */
+    100% { margin-top: 0px; }
+}
+
+/* Aplicamos la animación al nodo objetivo */
+.leaflet-marker-icon {
+    /* animation: [nombre] [duración] [repetición] [interpolación] */
+    animation: flotar 2s infinite ease-in-out;
+}
+
+
+/* ---------------------------------------------------
+   AJUSTE DE LAS SOMBRAS (Offset independiente)
+--------------------------------------------------- */
+.leaflet-marker-shadow {
+    /* Usamos 'top' para desplazar en Y, y '!important' para forzar al motor a obedecernos */
+    top: 15px !important; 
+    
+    /* Si también necesitas moverla en el eje X para ajustar la perspectiva: */
+    /* left: 5px !important; */
+}
