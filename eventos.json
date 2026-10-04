@@ -1,16 +1,16 @@
 [
     {
-        "nombre": "Evento en la Catedral",
-        "coordenadas": [344, 182],
+        "nombre": "Evento frente a la Catedral",
+        "coordenadas": [1386, 892],
         "fecha": "2026-10-03",
-        "descripcion": "Feria de artesanías y exposición de libros en la plaza.",
+        "descripcion": "Feria de artesanías y exposición de libros en la plaza 1ro de mayo.",
         "categoria": "feria"
     },
     {
-        "nombre": "Charla en Plaza de bomberos",
-        "coordenadas": [366, 192],
+        "nombre": "Charla de tecnologia en MiradorTec",
+        "coordenadas": [2122, 1190],
         "fecha": "2026-10-03",
-        "descripcion": "Demostración abierta de equipos de rescate (Mañana).",
+        "descripcion": "Demostración de equipos técnicos (10:00 - 11:00 am).",
         "categoria": "charla"
     }
 ]
